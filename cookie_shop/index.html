@@ -28,10 +28,40 @@
       <link rel="stylesheet" href="css/owl.carousel.min.css">
       <link rel="stylesheet" href="css/owl.theme.default.min.css">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+	  <!-- login CSS -->
+	  <link rel="stylesheet" href="css/login.css">
    </head>
    <!-- body -->
    <body>
 
+   <!-- Login Modal -->
+	<div id="id01" class="modal">
+	  <form class="modal-content animate" action="login.php" method="post">
+		<div class="imgcontainer">
+		  <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+		</div>
+
+		<div class="container">
+		  <label for="uname"><b>Nazwa użytkownika</b></label>
+		  <input type="text" placeholder="Enter Username" name="uname" required>
+
+		  <label for="psw"><b>Hasło</b></label>
+		  <input type="password" placeholder="Enter Password" name="psw" required>
+			
+		  <button type="submit">Login</button>
+		  <label>
+			<input type="checkbox" checked="checked" name="remember"> Zapamiętaj mnie
+		  </label>
+		</div>
+
+		<div class="container" style="background-color:#f1f1f1">
+		  <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Anuluj</button>
+		  <span class="psw">Nie masz konta? <a href="#">Załóż tutaj</a></span>
+		</div>
+	  </form>
+	</div>
+	<!-- Login Modal -->
+   
     <div id="mySidebar" class="sidebar">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
       <a href="index.html">Strona Główna</a>
@@ -51,7 +81,7 @@
                <div class="togle_3">
                   <div class="left_main">
                      <div class="menu_main">
-                        <a href="#"><i class="fa fa-fw fa-user"></i> Login</a>
+                        <a href="#" onclick="document.getElementById('id01').style.display='block'"><i class="fa fa-fw fa-user"></i> Login</a>
                      </div>
                   </div>
                   <div class="middle_main">
@@ -201,6 +231,18 @@
       document.getElementById("mySidebar").style.width = "0";
       document.getElementById("main").style.marginLeft= "0";
     }
+</script>
+
+<script>
+// Get the modal
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
 </script>
 
  </body>
