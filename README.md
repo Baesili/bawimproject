@@ -16,11 +16,11 @@ Typy ataków:
   - session fixation
   
   
-  Ustawienia serwera strony:
-  - Silnik: XAMPP
-  - Baza danych: MySQL
-  - Konfiguracja bazy danych w pliku 'connection.php', domyślnie:
-    - host='localhost'
-    - user='root'
-    - password=''
-    - db_name='bawim_cookie'
+Ustawienia serwera strony:
+- Silnik: XAMPP
+- Baza danych: MySQL
+- Konfiguracja bazy danych w pliku 'connection.php', domyślnie:
+  - host='localhost'
+  - user='root'
+  - password=''
+  - db_name='bawim_cookie'
