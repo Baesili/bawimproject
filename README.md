@@ -16,6 +16,8 @@ Typy ataków:
   - session fixation
   
   
+  
+  
 Ustawienia serwera strony:
 - Silnik: XAMPP
 - Baza danych: MySQL
