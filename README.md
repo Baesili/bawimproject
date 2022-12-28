@@ -20,6 +20,9 @@ Typy ataków:
   
 Ustawienia serwera strony:
 - Silnik: XAMPP (!!!PHP 8.0.x!!!)
+- Dodatkowe moduły:
+  - mcrypt https://pecl.php.net/package/mcrypt/1.0.4/windows PHP 8.0 Thread Safe (TS) x64
+  - https://www.geeksforgeeks.org/how-to-install-mcrypt-extension-in-xampp/ - instalacja mcrypt
 - Baza danych: MySQL
 - Konfiguracja bazy danych w pliku 'connection.php', domyślnie:
   - host='localhost'
