@@ -19,7 +19,7 @@ Typy ataków:
   
   
 Ustawienia serwera strony:
-- Silnik: XAMPP
+- Silnik: XAMPP (!!!PHP 8.0.x!!!)
 - Baza danych: MySQL
 - Konfiguracja bazy danych w pliku 'connection.php', domyślnie:
   - host='localhost'
