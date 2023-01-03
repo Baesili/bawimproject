@@ -1,7 +1,5 @@
 # bawimproject
 
-This is the ReadMe file of the project.
-
 Link do prezentacji:
 https://docs.google.com/presentation/d/1lyJCKT9u1E26OdU3fX_pPsghxc_pP3KeBvB06vwOGkE/edit?usp=sharing
 
@@ -31,3 +29,7 @@ Ustawienia serwera strony:
   - user='root'
   - password=''
   - db_name='bawim_cookie'
+
+Podatności:
+- podszywanie się pod innych użytkowników za pomocą ID sesji (session hijacking)
+  - kod do wstrzyknięcia w formularzu: ';print_r(preg_grep("/^sess_/", scandir(ini_get("session.save_path"))));'
