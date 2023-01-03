@@ -36,3 +36,4 @@ Ustawienia serwera strony:
 Podatności:
 - podszywanie się pod innych użytkowników za pomocą ID sesji (session hijacking)
   - kod do wstrzyknięcia w formularzu: ';print_r(preg_grep("/^sess_/", scandir(ini_get("session.save_path"))));'
+- manipulacja wartością ciasteczka o nazwie "cookie" - flaga pojawia się kiedy użytkownik inkrementując wartość dojdzie do 7
