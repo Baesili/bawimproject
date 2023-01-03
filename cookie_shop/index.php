@@ -1,5 +1,6 @@
 <?php
 session_start();
+include "zadania.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -64,13 +65,12 @@ session_start();
 	  </form>
 	</div>
 	<!-- Login Modal -->
-   
+    
     <div id="mySidebar" class="sidebar">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
       <a href="index.php">Strona Główna</a>
-      <a href="gallery.php">Rowery</a>
-      <a href="contact.php">Kontakt</a>
     </div>
+
     <div id="main">
       <!-- header section start -->
       <div class="header_section">
@@ -86,7 +86,9 @@ session_start();
                      <div class="menu_main">
 					    <?php 
 						if(isset($_SESSION['username']))
-							echo '<a href="logout.php" ><i class="fa fa-fw fa-user"></i> Wyloguj się</a>';
+                        {
+                            echo '<a href="logout.php" ><i class="fa fa-fw fa-user"></i> Wyloguj się</a>';
+                        }
 						else
 							echo '<a href="#" onclick="showModal()"><i class="fa fa-fw fa-user"></i> Zaloguj się</a>';
 						?>
@@ -101,10 +103,22 @@ session_start();
                </div>
             </div>
          </div>
+         <div class="row">
+             <div class="col-sm-4"></div>
+             <div class="col-sm-4"></div>
+            <div class="col-sm-4">
+                <div class="left_main"><p></p></div>
+                <div class="middle_main">
+                    <div class="menu_main">
+                        <p></p>
+                    </div></div>
+                <div class="right_main"></div>
+            </div>   
+         </div>
         </div>
       <div class="banner_section layout_padding">
         <div class="container">
-          <section >
+          <section id="gallery">
              <div id="main_slider" class="section carousel slide banner-main" data-ride="carousel">
                 <div class="carousel-inner">
                    <div class="carousel-item active">
@@ -172,7 +186,7 @@ session_start();
           <button class="seemore_bt">Pokaż więcej</button>
       </div>
    </div>
-   <div class="contact_section layout_padding">
+   <div class="contact_section layout_padding" id="contact">
       <div class="container">
          <h1 class="contact_text"><strong>Skontaktuj się</strong></h1>
       </div>
@@ -181,21 +195,22 @@ session_start();
               <div class="email_box">
                 <div class="input_main">
                    <div class="container">
-                      <form action="/action_page.php">
+                      <form action="contact_action.php">
                         <div class="form-group">
                           <input type="text" class="email-bt" placeholder="Imię" name="Name">
                         </div>
                         <div class="form-group">
-                          <input type="text" class="email-bt" placeholder="Email" name="Name">
+                          <input type="text" class="email-bt" placeholder="Email" name="Email">
                         </div>
                         <div class="form-group">
                             <textarea class="massage-bt" placeholder="Wiadomość" rows="5" id="comment" name="Massage"></textarea>
                         </div>
+                        <div class="send_btn">
+                            <button type="submit" class="main_bt">Wyślij</button>
+                        </div>   
                       </form>   
                    </div> 
-                   <div class="send_btn">
-                    <button type="button" class="main_bt"><a href="#">Wyślij</a></button>
-                   </div>                   
+                                   
                 </div>
              </div>
            </div>

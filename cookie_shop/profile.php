@@ -1,5 +1,27 @@
 <?php
 session_start();
+include "connection.php";
+include "encrypt.php";
+if(isset($_SESSION['username']))
+{
+    $uname = $_SESSION['username'];
+    $sql = "SELECT id FROM login WHERE username='$uname'";
+    $result = mysqli_query($conn, $sql);
+    $card_number="";
+    $cvv="";
+    if(mysqli_num_rows($result) === 1) {
+        $row = mysqli_fetch_assoc($result);
+        $id = $row['id'];
+
+        $sql = "SELECT * FROM payments WHERE user_id=$id";
+        $result = mysqli_query($conn, $sql);
+        if(mysqli_num_rows($result) === 1) {
+            $row = mysqli_fetch_assoc($result);
+            $card_number=$row['card_number'];
+            $cvv=$row['cvv'];
+        }
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,7 +33,7 @@ session_start();
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="viewport" content="initial-scale=1, maximum-scale=1">
       <!-- site metas -->
-      <title>Contact Us</title>
+      <title>Speed</title>
       <meta name="keywords" content="">
       <meta name="description" content="">
       <meta name="author" content="">
@@ -36,7 +58,7 @@ session_start();
    </head>
    <!-- body -->
    <body>
-   
+
    <!-- Login Modal -->
 	<div id="id01" class="modal">
 	  <form class="modal-content animate" action="login.php" method="post">
@@ -64,20 +86,17 @@ session_start();
 	  </form>
 	</div>
 	<!-- Login Modal -->
-
     <div id="mySidebar" class="sidebar">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
       <a href="index.php">Strona Główna</a>
-      <a href="gallery.php">Rowery</a>
-      <a href="contact.php">Kontakt</a>
     </div>
-
-<div id="main">
+      
+    <div id="main">
       <!-- header section start -->
       <div class="header_section">
+        <div class="container-fluid">
          <div class="row">
-            <div class="col-sm-4">
-            </div>
+            <div class="col-sm-4"></div>
             <div class="col-sm-4">
                <div class="logo"><img src="images/logo.png"></div>
             </div>
@@ -85,9 +104,11 @@ session_start();
                <div class="togle_3">
                   <div class="left_main">
                      <div class="menu_main">
-                        <?php 
+					    <?php 
 						if(isset($_SESSION['username']))
-							echo '<a href="logout.php" ><i class="fa fa-fw fa-user"></i> Wyloguj się</a>';
+                        {
+                            echo '<a href="logout.php" ><i class="fa fa-fw fa-user"></i> Wyloguj się</a>';
+                        }
 						else
 							echo '<a href="#" onclick="showModal()"><i class="fa fa-fw fa-user"></i> Zaloguj się</a>';
 						?>
@@ -102,74 +123,88 @@ session_start();
                </div>
             </div>
          </div>
-     </div>
-
-   <div class="contact_section layout_padding">
-      <div class="container">
-         <h1 class="contact_text"><strong>Skontaktuj się</strong></h1>
-      </div>
-        <div class="contact_main">
-           <div class="enput_section">
-              <div class="email_box">
-                <div class="input_main">
-                   <div class="container">
-                      <form action="/action_page.php">
-                        <div class="form-group">
-                          <input type="text" class="email-bt" placeholder="Imię" name="Name">
-                        </div>
-                        <div class="form-group">
-                          <input type="text" class="email-bt" placeholder="Email" name="Name">
-                        </div>
-                        <div class="form-group">
-                            <textarea class="massage-bt" placeholder="Wiadomość" rows="5" id="comment" name="Massage"></textarea>
-                        </div>
-                      </form>   
-                   </div> 
-                   <div class="send_btn">
-                    <button type="button" class="main_bt"><a href="#">Wyślij</a></button>
-                   </div>                   
+         <div class="row">
+             <div class="col-sm-4"></div>
+             <div class="col-sm-4"></div>
+            <div class="col-sm-4">
+                <div class="left_main"><p></p></div>
+                <div class="middle_main">
+                    <div class="menu_main">
+                        <p></p>
+                    </div></div>
+                <div class="right_main"></div>
+            </div>   
+         </div>
+        </div>
+      <div class="banner_section layout_padding">
+        <div class="container">
+          <section id="gallery">
+             <div id="main_slider" class="section carousel slide banner-main" data-ride="carousel">
+                <div class="carousel-inner">
+                   <div class="carousel-item active">
+                      <div class="container">
+                         <div class="row marginii">
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12" style="height: 400px;">
+                                <div class="menu_main">
+                                    <?php 
+                                    if(isset($_SESSION['username']))
+                                    {
+                                        echo '<h1>Twój profil</h1><a>'.$_SESSION['username'].'</a>';
+                                        echo '<h3>Dane twojej karty:</h3><p>Numer: '.$card_number.'<br>CVV: '.$cvv.'</p>';
+                                    }
+                                    ?>
+                                </div>
+                            </div>
+                         </div>
+                      </div>
+                   </div>
                 </div>
              </div>
-           </div>
+          </section>
         </div>
+      </div>
     </div>
+   </div>
+   <!-- about section end -->
+   <!-- our section end -->
+   <!-- footer section start -->
+   <!-- copyright section start -->
    <div class="copyright_text">Copyright 2023</div>
 
-   </div>
 
-      <!-- Javascript files-->
-      <script src="js/jquery.min.js"></script>
-      <script src="js/popper.min.js"></script>
-      <script src="js/bootstrap.bundle.min.js"></script>
-      <script src="js/jquery-3.0.0.min.js"></script>
-      <script src="js/plugin.js"></script>
-      <!-- sidebar -->
-      <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
-      <script src="js/custom.js"></script>
-      <!-- javascript --> 
-      <script src="js/owl.carousel.js"></script>
-      <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
-      <script>
-         $(document).ready(function(){
-         $(".fancybox").fancybox({
-         openEffect: "none",
-         closeEffect: "none"
-         });
-       $('#myCarousel').carousel({
-            interval: false
-        });
-      </script>
+  <!-- Javascript files-->
+  <script src="js/jquery.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/jquery-3.0.0.min.js"></script>
+  <script src="js/plugin.js"></script>
+  <!-- sidebar -->
+  <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+  <script src="js/custom.js"></script>
+  <!-- javascript --> 
+  <script src="js/owl.carousel.js"></script>
+  <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+  <script>
+     $(document).ready(function(){
+     $(".fancybox").fancybox({
+     openEffect: "none",
+     closeEffect: "none"
+     });
+   $('#myCarousel').carousel({
+        interval: false
+    });
+  </script>
 
-      <script>
-function openNav() {
-  document.getElementById("mySidebar").style.width = "250px";
-  document.getElementById("main").style.marginLeft = "250px";
-}
+<script>
+    function openNav() {
+      document.getElementById("mySidebar").style.width = "250px";
+      document.getElementById("main").style.marginLeft = "250px";
+    }
 
-function closeNav() {
-  document.getElementById("mySidebar").style.width = "0";
-  document.getElementById("main").style.marginLeft= "0";
-}
+    function closeNav() {
+      document.getElementById("mySidebar").style.width = "0";
+      document.getElementById("main").style.marginLeft= "0";
+    }
 </script>
 
 <script>
@@ -189,5 +224,5 @@ window.onclick = function(event) {
 }
 </script>
 
-  </body>
+ </body>
 </html>

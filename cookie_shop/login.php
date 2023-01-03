@@ -27,14 +27,6 @@ if(isset($_POST['uname']) && isset($_POST['psw'])) {
 				$_SESSION['username'] = $row['username'];
 				$_SESSION['type'] = $row['type'];
 				
-				$key = "1234567891234567"; // must be 16, 24 or 32 length
-				$crypt = new Encryption($key);
-				$encrypted_string = $crypt->encrypt('this is a test');
-				$decrypted_string = $crypt->decrypt($encrypted_string);
-				
-				setcookie("Encrypted",$encrypted_string);
-				setcookie("Decrypted",$decrypted_string);
-				
 				if (isset($_SERVER["HTTP_REFERER"])) {
 					header("Location: " . $_SERVER["HTTP_REFERER"]);
 				}
