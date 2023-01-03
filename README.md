@@ -24,6 +24,9 @@ Ustawienia serwera strony:
   - użycie https://stackoverflow.com/questions/2448256/encrypting-decrypting-file-with-mcrypt/2448441#2448441
   - atak na mcrypt https://paragonie.com/blog/2015/05/using-encryption-and-authentication-correctly
 - Baza danych: MySQL
+  - nazwa bazy: 'bawim_cookie'
+  - tabela 'login': id, username, password, type - (przykładowy rekord: 1, matikol, 1234, admin)
+  - tabela 'payments': id, user_id, card_number, cvv - (przykładowy rekord: 1, 1, 1111 bawimCTF{st4y_s4f3_0n1in3} 4444, 999)
 - Konfiguracja bazy danych w pliku 'connection.php', domyślnie:
   - host='localhost'
   - user='root'
