@@ -5,40 +5,29 @@ include "zadania.php";
 <!DOCTYPE html>
 <html lang="en">
    <head>
-      <!-- basic -->
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <!-- mobile metas -->
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="viewport" content="initial-scale=1, maximum-scale=1">
-      <!-- site metas -->
       <title>Speed</title>
       <meta name="keywords" content="">
       <meta name="description" content="">
       <meta name="author" content="">
-      <!-- bootstrap css -->
       <link rel="stylesheet" href="css/bootstrap.min.css">
       <!-- style css -->
       <link rel="stylesheet" href="css/style.css">
-      <!-- Responsive-->
+      <link rel="stylesheet" href="css/login.css">
+       
       <link rel="stylesheet" href="css/responsive.css">
-      <!-- fevicon -->
       <link rel="icon" href="images/fevicon.png" type="image/gif" />
-      <!-- Scrollbar Custom CSS -->
       <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
-      <!-- Tweaks for older IEs-->
       <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
-      <!-- owl stylesheets --> 
       <link rel="stylesheet" href="css/owl.carousel.min.css">
       <link rel="stylesheet" href="css/owl.theme.default.min.css">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
-	  <!-- login CSS -->
-	  <link rel="stylesheet" href="css/login.css">
    </head>
-   <!-- body -->
    <body>
-
-   <!-- Login Modal -->
+       
 	<div id="id01" class="modal">
 	  <form class="modal-content animate" action="login.php" method="post">
 		<div class="imgcontainer">
@@ -64,7 +53,6 @@ include "zadania.php";
 		</div>
 	  </form>
 	</div>
-	<!-- Login Modal -->
     
     <div id="mySidebar" class="sidebar">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
@@ -72,7 +60,6 @@ include "zadania.php";
     </div>
 
     <div id="main">
-      <!-- header section start -->
       <div class="header_section">
         <div class="container-fluid">
          <div class="row">
@@ -147,9 +134,7 @@ include "zadania.php";
       </div>
     </div>
    </div>
-   <!-- about section end -->
-   
-   <!-- our section start -->
+
    <div class="our_section">
       <div class="container">
          <div class="row">
@@ -209,18 +194,31 @@ include "zadania.php";
                             <button type="submit" class="main_bt">Wyślij</button>
                         </div>   
                       </form>   
-                   </div> 
-                                   
+                   </div>             
                 </div>
              </div>
            </div>
         </div>
     </div>
-   <!-- our section end -->
-   <!-- footer section start -->
-   <!-- copyright section start -->
+       
+    <div id="cookieBG" style="width:100%; height: 100%; position: fixed; text-align: center; display: none;">
+    <div id="cookieNotice" class="light display-right" style="display: none; background: white; border: 5px solid black; width:700px; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+        <div id="closeIcon" style="display: none;">
+        </div>
+        <div class="title-wrap">
+            <h4>Informacja o ciasteczkach</h4>
+        </div>
+        <div class="content-wrap">
+            <div class="msg-wrap">
+                <p>Ta strona używa ciasteczek i podobnych technologii, w celu zapewnienia spersonalizowanych treści oraz zwiększenia twojego zadowolenia z korzystania ze strony. Aby kontynuować musisz zaakceptować <a style="color:#115cfa;" href="/privacy-policy">Politykę Prywatności</a></p>
+                <div class="btn-wrap">
+                    <button class="btn-primary" onclick="acceptCookieConsent();">Akceptuj</button>
+                </div>
+            </div>
+        </div>
+    </div>   
+    </div>
    <div class="copyright_text">Copyright 2023</div>
-
 
   <!-- Javascript files-->
   <script src="js/jquery.min.js"></script>
@@ -232,47 +230,20 @@ include "zadania.php";
   <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
   <script src="js/custom.js"></script>
   <!-- javascript --> 
+  <script src="js/postpopup.js"></script>
   <script src="js/owl.carousel.js"></script>
+  <script src="js/navandmodal.js"></script>
   <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
   <script>
      $(document).ready(function(){
-     $(".fancybox").fancybox({
-     openEffect: "none",
-     closeEffect: "none"
-     });
-   $('#myCarousel').carousel({
-        interval: false
-    });
+         $(".fancybox").fancybox({
+             openEffect: "none",
+             closeEffect: "none"
+         });
+         $('#myCarousel').carousel({
+            interval: false
+        });
+    }
   </script>
-
-<script>
-    function openNav() {
-      document.getElementById("mySidebar").style.width = "250px";
-      document.getElementById("main").style.marginLeft = "250px";
-    }
-
-    function closeNav() {
-      document.getElementById("mySidebar").style.width = "0";
-      document.getElementById("main").style.marginLeft= "0";
-    }
-</script>
-
-<script>
-
-	function showModal() {
-		document.getElementById('id01').style.display='block';
-	}
-
-// Get the modal
-var modal = document.getElementById('id01');
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-}
-</script>
-
  </body>
 </html>
