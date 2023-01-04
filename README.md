@@ -37,3 +37,4 @@ Podatności:
 - podszywanie się pod innych użytkowników za pomocą ID sesji (session hijacking)
   - kod do wstrzyknięcia w formularzu: ';print_r(preg_grep("/^sess_/", scandir(ini_get("session.save_path"))));'
 - manipulacja wartością ciasteczka o nazwie "cookie" - flaga pojawia się kiedy użytkownik inkrementując wartość dojdzie do 7
+- "cookie wall" - po akceptacji tworzy ciasteczko z dopiskiem "_noflag", kiedy użytkownik stworzy nowe ciasteczko z dopiskiem "_flag" i usunie poprzednie to ponownie po akceptacji cookie walla wyświetli mu się flaga
