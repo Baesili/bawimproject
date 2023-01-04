@@ -1,8 +1,6 @@
 <?php 
 error_reporting(E_ALL ^ E_DEPRECATED);
 
-define('ENCRYPTION_KEY', 'd0a7e7997b6d5fcd55f4b5c32611b87cd923e88837b63bf2941ef819dc8ca282');
-
 function setUnsafeCookie($name, $cookieData, $key)
 {
     $iv = mcrypt_create_iv(16, MCRYPT_DEV_URANDOM);
@@ -20,30 +18,44 @@ function setUnsafeCookie($name, $cookieData, $key)
         )
     );
 }
-function getUnsafeCookie($name, $key)
+
+function ASCIIToHexadecimal($str)
 {
-    if (!isset($_COOKIE[$name])) {
-        return null;
-    }
-    $decoded = base64_decode($_COOKIE[$name]);
-    $iv = mb_substr($decoded, 0, 16, '8bit');
-    $ciphertext = mb_substr($decoded, 16, null, '8bit');
-    
-    $decrypted = rtrim(
-        mcrypt_decrypt(
-            MCRYPT_RIJNDAEL_128,
-            $key,
-            $ciphertext,
-            MCRYPT_MODE_CBC,
-            $iv
-        ),
-        "\0"
-    );
-    
-    return json_decode($decrypted, true);
+	$hex = "";
+	$strLen = strLen($str);
+	for ($i = 0; $i < $strLen; $i++)
+	{
+		$chex = DecimalToHexadecimal(ord($str[$i]));
+		if (strlen($chex) == 1)
+			$chex = substr_replace($chex, "0", 0, 0);
+		$hex .= $chex;
+	}
+	return $hex;
 }
 
-setUnsafeCookie("mystery", "bawimCTF{cr7p5o_i3_c00l}", "1234567891234567");
+
+function DecimalToHexadecimal($dec)
+{
+	if ($dec < 1) return "0";
+	$hex = $dec;
+	$hexStr = "";
+	while ($dec > 0)
+	{
+		$hex = $dec % 16;
+		if ($hex < 10)
+			$hexStr = substr_replace($hexStr, chr($hex + 48), 0, 0);
+		else
+			$hexStr = substr_replace($hexStr, chr($hex + 55), 0, 0);
+		$dec = floor($dec / 16);
+	}
+	return $hexStr;
+}
+
+$id=session_id();
+$key=mb_substr($id,0,8,'8bit');
+$hexkey=ASCIIToHexadecimal($key);
+
+setUnsafeCookie("mystery", "bawimCTF{cr7p5o_i3_c00l}", $hexkey);
 if(!isset($_COOKIE['cookie']))
     setcookie("cookie", "-1");
 else
@@ -53,18 +65,5 @@ else
         print_r("bawimCTF{3v3ry1_l0v3s_c00k135}");
     }
 }
-
-//print_r(getUnsafeCookie("test", "000102030405060708090a0b0c0d0e0f"));
-
-//$key = "1234567891234567"; // must be 16, 24 or 32 length
-
-/*$crypt = new Encryption($key);
-$encrypted_string = $crypt->encrypt('this is a test');
-$decrypted_string = $crypt->decrypt($encrypted_string);
-
-setcookie("Encrypted",$encrypted_string);
-setcookie("Decrypted",$decrypted_string);
-*/
-
 
 ?>

@@ -183,7 +183,7 @@ include "zadania.php";
                </a>
             </div>
           </div>
-          <button class="seemore_bt">Pokaż więcej</button>
+          <button class="seemore_bt"><a href="showmore.php">Pokaż więcej</a></button>
       </div>
    </div>
    <div class="contact_section layout_padding" id="contact">
