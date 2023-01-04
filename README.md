@@ -12,26 +12,10 @@ Typy ataków:
   - session hijacking
   - session spoofing
   - session fixation
+
+
+https://bawimctf.000webhostapp.com/
   
-  
-  
-  
-Ustawienia serwera strony:
-- Silnik: XAMPP (!!!PHP 8.0.x!!!)
-- Dodatkowy moduł mcrypt:
-  - mcrypt https://pecl.php.net/package/mcrypt/1.0.4/windows PHP 8.0 Thread Safe (TS) x64
-  - instalacja https://www.geeksforgeeks.org/how-to-install-mcrypt-extension-in-xampp/
-  - użycie https://stackoverflow.com/questions/2448256/encrypting-decrypting-file-with-mcrypt/2448441#2448441
-  - atak na mcrypt https://paragonie.com/blog/2015/05/using-encryption-and-authentication-correctly
-- Baza danych: MySQL
-  - nazwa bazy: 'bawim_cookie'
-  - tabela 'login': id, username, password, type - (przykładowy rekord: 1, matikol, 1234, admin)
-  - tabela 'payments': id, user_id, card_number, cvv - (przykładowy rekord: 1, 1, 1111 bawimCTF{st4y_s4f3_0n1in3} 4444, 999)
-- Konfiguracja bazy danych w pliku 'connection.php', domyślnie:
-  - host='localhost'
-  - user='root'
-  - password=''
-  - db_name='bawim_cookie'
 
 Podatności:
 - podszywanie się pod innych użytkowników za pomocą ID sesji (session hijacking)
