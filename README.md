@@ -10,7 +10,7 @@ Kilka podstawowych podatności i pojęć powiązanych z ciasteczkami.
 - Przejęcie i zdeszyfrowanie wartości ciasteczka
 
 ## Zadania
-Link do strony: https://bawimctf.000webhostapp.com/
+[Link do strony](https://bawimctf.000webhostapp.com/)  
 W ramach ćwiczenia do przejęcia są 4 flagi, do których trzeba dotrzeć manipulując ciasteczkami.
 
 ### Podpowiedzi:
