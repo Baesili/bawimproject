@@ -1,4 +1,4 @@
-# bawimproject
+# Manipulacja Ciasteczkami
 
 Link do prezentacji:
 https://docs.google.com/presentation/d/1lyJCKT9u1E26OdU3fX_pPsghxc_pP3KeBvB06vwOGkE/edit?usp=sharing
