@@ -23,4 +23,4 @@ Drugą flagę znajdziesz za pomocą szczęśliwej liczby - musisz znaleźć cias
 Trzecia flaga wymaga zdeszyfrowania tajemniczej wartości jednego z ciasteczek. Wykorzystarz do tego wiedzę kryptograficzną.
 
 #### Zadanie 4 - przejęcie sesji poprzez ciasteczko
-Ostatnia flaga wymaga przejęcia sesji zalogowanego użytkownika i przejrzeć jego konto - musisz dostać się do listy sesji i znaleźć jej ID.
+Ostatnia flaga wymaga przejęcia sesji zalogowanego użytkownika i przejrzeć jego konto (podstrona profile.php) - musisz dostać się do listy sesji i znaleźć jej ID.
