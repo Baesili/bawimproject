@@ -55,14 +55,14 @@ $id=session_id();
 $key=mb_substr($id,0,8,'8bit');
 $hexkey=ASCIIToHexadecimal($key);
 
-setUnsafeCookie("mystery", "bawimCTF{cr7p5o_i3_c00l}", $hexkey);
+setUnsafeCookie("mystery", "bawimCTF{}", $hexkey);
 if(!isset($_COOKIE['cookie']))
     setcookie("cookie", "-1");
 else
 {
     if($_COOKIE['cookie'] == 7)
     {
-        print_r("bawimCTF{3v3ry1_l0v3s_c00k135}");
+        print_r("bawimCTF{}");
     }
 }
 
