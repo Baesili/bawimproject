@@ -20,7 +20,7 @@ Pierwsza flaga została ukryta za ścianą - żeby się do niej dostać, musisz 
 Drugą flagę znajdziesz za pomocą szczęśliwej liczby - musisz znaleźć ciastko, które ją może przechować jako wartość.
 
 #### Zadanie 3 - zdeszyfrowanie wartości ciasteczka
-Trzecia flaga wymaga zdeszyfrowania tajemniczej wartości jednego z ciasteczek. Wykorzystarz do tego wiedzę kryptograficzną. Ta strona może być przydatna: https://www.rapidtables.com/convert/number/hex-to-ascii.html
+Trzecia flaga wymaga zdeszyfrowania tajemniczej wartości jednego z ciasteczek. Wykorzystarz do tego wiedzę kryptograficzną. Ta strona może być przydatna: https://www.rapidtables.com/convert/number/ascii-to-hex.html
 
 #### Zadanie 4 - przejęcie sesji poprzez ciasteczko
 Ostatnia flaga wymaga przejęcia sesji zalogowanego użytkownika i przejrzeć jego konto (podstrona profile.php) - musisz dostać się do listy sesji i znaleźć jej ID.
